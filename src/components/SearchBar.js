@@ -2,15 +2,20 @@ import React from 'react';
 import { View, StyleSheet, TextInput } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 
-const SearchBar = () => {
+const SearchBar = ({term, onTermChange, onTermSubmit}) => {
   const { backgroundStyle, inputStyle, iconStyle  } = styles
 
   return (
     <View style={backgroundStyle}>
       <Ionicons name="md-search" style={iconStyle}/>
       <TextInput
+        autoCapitalize="none"
+        autoCorrect={false}
         placeholder="Search"
         style={inputStyle}
+        onChangeText={onTermChange}
+        onEndEditing={onTermSubmit}
+        value={term}
       />
     </View>
   );
