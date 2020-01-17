@@ -11,7 +11,7 @@ web-build/
 web-report/
 yarn.lock
 package-lock.json
-
+.env
 
 # macOS
 .DS_Store
