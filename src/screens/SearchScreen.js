@@ -24,7 +24,7 @@ const SearchScreen = () => {
       { error ? <Text>{error}</Text> : null }
       <ResultsList title="Cost Effective" results={filterResultsByPrice('$')}/>
       <ResultsList title="Bit Pricier" results={filterResultsByPrice('$$')}/>
-      <ResultsList title="Big SPender" results={filterResultsByPrice('$$$')}/>
+      <ResultsList title="Big Spender" results={filterResultsByPrice('$$$')}/>
     </View>
   );
 };
