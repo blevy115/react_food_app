@@ -5,6 +5,9 @@ import ResultDetail from './ResultDetail';
 
 const ResultsList = ({title, results, navigation}) => {
   const { titleStyle, containerStyles } = styles
+  if (!results.length){
+    return null
+  }
   return (
     <View style={containerStyles}>
       <Text style={titleStyle}>{title}</Text>

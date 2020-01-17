@@ -18,21 +18,20 @@ const ResultsShowScreen = ({ navigation }) => {
   if(!result) {
     return null
   }
-  else {
 
-    return (
-      <View>
-        <Text>{result.name}</Text>
-        <FlatList
-          data={result.photos}
-          keyExtractor = {photo => photo}
-          renderItem = {({ item }) => {
-            return <Image source={{ uri:item}} style={styles.image}/>
-          }}
-        />
-      </View>
-    )
-  }
+  return (
+    <View>
+      <Text>{result.name}</Text>
+      <FlatList
+        data={result.photos}
+        keyExtractor = {photo => photo}
+        renderItem = {({ item }) => {
+          return <Image source={{ uri:item}} style={styles.image}/>
+        }}
+      />
+    </View>
+  )
+
 }
 
 const styles = StyleSheet.create({
