@@ -15,9 +15,9 @@ const ResultsList = ({title, results, navigation}) => {
         renderItem={({ item }) => {
           return (
               <TouchableOpacity
-                onPress={() => navigation.navigate('ResultsShow')}
+                onPress={() => navigation.navigate('ResultsShow', { id: item.id })}
               >
-                <ResultDetail result={item} navigation={navigation}/>
+                <ResultDetail result={item}/>
               </TouchableOpacity>
           );
         }}
