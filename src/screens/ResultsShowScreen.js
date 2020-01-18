@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, Image } from 'react-native'
+import { View, Text, StyleSheet, FlatList, Image, Linking, Button } from 'react-native';
+import MapView from 'react-native-maps';
 import yelp from '../api/yelp';
 
 const ResultsShowScreen = ({ navigation }) => {
@@ -18,10 +19,14 @@ const ResultsShowScreen = ({ navigation }) => {
   if(!result) {
     return null
   }
-
   return (
-    <View>
-      <Text>{result.name}</Text>
+    <View style={{flex:1}}>
+      <Text style={{alignSelf:'center', fontSize:25, fontWeight:'bold'}}>{result.name}</Text>
+      <View style={styles.phoneContainerStyle}>
+        <Text style={{alignSelf:'center'}}>Phone number:</Text>
+        <Button title={result.display_phone}onPress={() => {Linking.openURL(`tel:${result.phone}`)}}> {result.display_phone}</Button>
+      </View>
+      <MapView style={styles.mapStyle} />
       <FlatList
         data={result.photos}
         keyExtractor = {photo => photo}
@@ -38,7 +43,16 @@ const styles = StyleSheet.create({
   image:{
     height:200,
     width:300,
-  }
+  },
+  mapStyle: {
+    width: 300,
+    height: 300,
+  },
+  phoneContainerStyle:{
+    flexDirection:'row',
+    justifyContent:"center"
+  },
+
 });
 
 export default ResultsShowScreen;
