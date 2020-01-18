@@ -16,7 +16,7 @@ export default () => {
       if (location) {
         setLatitude(location.coords.latitude)
         setLongitude(location.coords.longitude)
-        searchApi('pasta', location.coords.latitude, location.coords.longitude)
+        searchApi('', location.coords.latitude, location.coords.longitude)
       }
   }
   }
