@@ -6,8 +6,7 @@ import useResults from '../hooks/useResults';
 
 const SearchScreen = () => {
   const [term ,setTerm] = useState("");
-  const [searchApi, results, error] = useResults();
-
+  const [searchApi, results, error, latitude, longitude] = useResults();
   const filterResultsByPrice = (price) => {
     // price = '$' | '$$ '| '$$$'
     return results.filter(result => result.price === price)
@@ -18,7 +17,7 @@ const SearchScreen = () => {
       <SearchBar
         term={term}
         onTermChange={setTerm}
-        onTermSubmit={() => searchApi(term)}
+        onTermSubmit={() => searchApi(term, latitude, longitude)}
       />
       { error ? <Text>{error}</Text> : null }
       <ScrollView>
