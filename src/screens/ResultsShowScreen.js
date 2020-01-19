@@ -43,6 +43,7 @@ const ResultsShowScreen = ({ navigation }) => {
         title={result.name}
       />
       </MapView>
+      <Text>{result.location.address1}, {result.location.city} {result.location.state}</Text>
       <Text style={{alignSelf:'center', fontSize:18, marginVertical:5}}>Photos</Text>
       <FlatList
         data={result.photos}
@@ -60,10 +61,11 @@ const styles = StyleSheet.create({
   image:{
     height:200,
     width:300,
+    marginBottom:10,
   },
   mapStyle: {
     width: 300,
-    height: 300,
+    height: 200,
   },
   phoneContainerStyle:{
     flexDirection:'row',
